@@ -1,6 +1,7 @@
 import { SSTConfig } from "sst";
 import BuildPipelineStack from "./stacks/BuildPipelineStack";
 import NextAppsStack from "./stacks/NextAppsStack";
+import SecretsStack from "./stacks/SecretsStack";
 
 export default {
   config(_input) {
@@ -10,6 +11,6 @@ export default {
     };
   },
   stacks(app) {
-    app.stack(BuildPipelineStack).stack(NextAppsStack);
+    app.stack(SecretsStack).stack(BuildPipelineStack).stack(NextAppsStack);
   },
 } satisfies SSTConfig;

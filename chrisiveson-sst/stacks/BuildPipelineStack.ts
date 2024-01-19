@@ -25,11 +25,13 @@ const BuildPipelineStack = ({ stack }: StackContext) => {
   pipeline.addStage({
     stageName: "Source-From-Repo",
     actions: [
-      new codepipeline_actions.CodeCommitSourceAction({
-        actionName: "CodeCommit",
-        repository: repo,
+      new codepipeline_actions.GitHubSourceAction({
+        actionName: "GitHub_Source",
+        owner: "chrisivo",
+        repo: "portfolio-website",
         output: sourceOutput,
-        branch: "main",
+        branch: "master",
+        oauthToken: cdk.SecretValue.secretsManager("chrisivo-github-token"),
         // TODO: investigate custom trigger based on tags applied to repo
         // trigger: codepipeline_actions.CodeCommitTrigger.EVENTS
       }),
