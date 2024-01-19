@@ -5,6 +5,7 @@ import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import Link from "next/link";
 
 export default function About() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -54,7 +55,18 @@ export default function About() {
 
       <p>
         I'm always eager to tackle new challenges and collaborate on exciting
-        projects. Let's connect and create something extraordinary together.
+        projects.{" "}
+        <Link
+          href="#contact"
+          className="underline"
+          onClick={() => {
+            setActiveSection("Contact");
+            setTimeOfLastClick(Date.now());
+          }}
+        >
+          Let's connect
+        </Link>{" "}
+        and create something extraordinary together.
       </p>
     </motion.section>
   );
