@@ -1,0 +1,10 @@
+{
+  "hosted-zone:account=830977809353:domainName=re-cognition.co:region=eu-west-2": {
+    "Id": "/hostedzone/Z03061711K95YN3VF082M",
+    "Name": "re-cognition.co."
+  },
+  "hosted-zone:account=830977809353:domainName=chrisiveson.com:region=eu-west-2": {
+    "Id": "/hostedzone/Z023649619AR106WK3FB4",
+    "Name": "chrisiveson.com."
+  }
+}
