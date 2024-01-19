@@ -4,8 +4,10 @@ import React from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function About() {
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const { ref } = useSectionInView("About");
 
   return (
@@ -19,30 +21,40 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Accounting</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
+        Hello! I'm Chris, a seasoned Freelance Software Engineer with an MSc in
+        Software Engineering and over 25 years of experience in the tech
+        industry. My journey is fueled by a deep passion for technology and
+        innovation. Currently, I specialize in architecting and developing
+        cutting-edge applications across various platforms, with a particular
+        emphasis on .
+        <span className="font-medium">NET Core and React (Next.js)</span>. My
+        skill set encompasses proficiency in both SQL-based{" "}
         <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
-        </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
+          Relational Database Management Systems
+        </span>{" "}
+        and modern <span className="font-medium">document databases</span> like
+        MongoDB and DynamoDB, as well as experience in implementing robust and
+        scalable <span className="font-medium">event-sourced</span> data storage
+        approaches for time-sequenced data handling. Currently, I’m dedicated to
+        finding the most cost-effective hosting solutions for these technologies
+        on cloud platforms, particularly <span className="underline>">AWS</span>
+        , ensuring high performance and efficient resource utilization.
+      </p>
+
+      <p className="mb-3">
+        When the computers power down, I enjoy being outdoors. I often spend
+        weekends <span className="italic">hill walking</span> with my wife and
+        daughter. <span className="italic">Cycling</span> through Wales allows
+        me to CTRL+ALT+DEL my mind ready for the week ahead (yes, I must be
+        running an old OS up there!). I also enjoy the occasional dabble in
+        <span className="italic">electronic music production</span>, and
+        currently have a daily evening routine involving{" "}
+        <span className="italic">playing chess</span> with my daughter.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies, and playing with my dog. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
-        learning how to play the guitar.
+        I'm always eager to tackle new challenges and collaborate on exciting
+        projects. Let's connect and create something extraordinary together.
       </p>
     </motion.section>
   );
