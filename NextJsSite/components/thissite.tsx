@@ -38,7 +38,7 @@ export default function ThisSite() {
           ByteGrad
         </a>
         . Rather than using Vercel, however, it has been hosted directly on AWS
-        using the{" "}
+        using the rather ace{" "}
         <a className="underline" href="https://sst.dev">
           SST toolkit
         </a>
