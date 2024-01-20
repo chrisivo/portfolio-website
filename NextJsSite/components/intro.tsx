@@ -69,7 +69,7 @@ export default function Intro() {
         <span className="underline">
           architecting and developing applications
         </span>{" "}
-        on various platforms, with an particular emphasis on{" "}
+        on both Windows and Unix-based platforms, with an particular emphasis on{" "}
         <span className="font-bold">.NET Core</span> and{" "}
         <span className="font-bold">React (Next.js)</span>.{" "}
       </motion.h1>
