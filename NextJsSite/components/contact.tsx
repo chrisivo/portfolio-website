@@ -11,6 +11,11 @@ import toast from "react-hot-toast";
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
 
+  // me directly at{" "}
+  //         <a className="underline" href="mailto:example@gmail.com">
+  //                   example@gmail.com
+  //                           </a>{" "}
+  //
   return (
     <motion.section
       id="contact"
@@ -32,11 +37,7 @@ export default function Contact() {
       <SectionHeading>Contact me</SectionHeading>
 
       <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please contact me directly at{" "}
-        <a className="underline" href="mailto:example@gmail.com">
-          example@gmail.com
-        </a>{" "}
-        or through this form.
+        Please contact me directly by completing this form.
       </p>
 
       <form

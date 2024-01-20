@@ -3,6 +3,10 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
+import competencyiqImg from "@/public/CompetencyIQ-2.png";
+import hansImg from "@/public/hans-1.png";
+import pdiImg from "@/public/pdi-1.png";
+import recoImg from "@/public/reco-2.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
 
@@ -35,73 +39,147 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Junior Software Developer",
+    location: "Liverpool, UK",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
-  },
-  {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
-    description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "Worked as an application developer for a satellite communications company",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "1998",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Software Developer",
+    location: "Liverpool, UK",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+      "Worked as an application developer for another satellite communications company",
+    icon: React.createElement(CgWorkAlt),
+    date: "1999 - 2001",
+  },
+  {
+    title: "Lead Software Engineer",
+    location: "Bangkok, Thailand",
+    description:
+      "Now working as the lead engineer for another satellite communications company based in South-East Asia",
+    icon: React.createElement(CgWorkAlt),
+    date: "2001 - 2007",
+  },
+  {
+    title: "Lead Software Engineer",
+    location: "Bangkok, Thailand",
+    description:
+      "Working as the lead engineer for a service provider for oil & offshore industries in South-East Asia",
+    icon: React.createElement(CgWorkAlt),
+    date: "2007 - 2012",
+  },
+  {
+    title: "Graduated University",
+    location: "Liverpool, UK",
+    description:
+      "Graduated with an MSc in Software Engineering (online degree) at Liverpool University in the UK",
+    icon: React.createElement(LuGraduationCap),
+    date: "2012",
+  },
+  {
+    title: "Contract Software Engineer",
+    location: "Liverpool, UK",
+    description:
+      "Worked at several contract postions in the UK, including Bet365 and WebMedia360",
+    icon: React.createElement(CgWorkAlt),
+    date: "2012 - 2015",
+  },
+  {
+    title: "CompetencyIQ",
+    location: "Liverpool, UK",
+    description:
+      "Developed the CompetencyIQ solution for use by multinational energy companies",
     icon: React.createElement(FaReact),
-    date: "2021 - present",
+    date: "2015 - 2019",
+  },
+  {
+    title: "Contract Software Engineer",
+    location: "Liverpool, UK",
+    description:
+      "Worked as a contract/freelance software engineer for multiple companies, including a UK-based global security services company",
+    icon: React.createElement(CgWorkAlt),
+    date: "2019 - Present",
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Re-Cognition",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "An AI-driven Competency Management system, specifically designed for multinational energy companies, aimed to significantly amplify their operational effectiveness, adherence to safety norms, flexibility, and strategic evolution, utilising sophisticated analytics and automation to enhance workforce understanding and facilitate dynamic skill enhancement.",
+    tags: [
+      ".NET Core",
+      "React",
+      "Next.js",
+      "C#",
+      "TypeScript",
+      "Event Store",
+      "MySQL",
+      "AWS",
+      "OpenAI API",
+      "Tailwind",
+    ],
+    imageUrl: recoImg,
   },
   {
-    title: "rmtDev",
+    title: "Equilibria PDI",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
+      "An aptitude and personality assessment tool, offering a detailed and unbiased method for comprehending and managing human resources, essential for the success of any organisation.",
+    tags: [
+      ".NET Core",
+      "C#",
+      "Angular",
+      "TypeScript",
+      "SQL Server",
+      "JQuery",
+      "Bootstrap",
+      "Azure",
+    ],
+    imageUrl: pdiImg,
   },
   {
-    title: "Word Analytics",
+    title: "Project Hans",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
+      "A web-based algorithmic cryptocurrency trading studio, allowing users to create, backtest and run automatic trading algorithm on the various cryptocurrency trading markets provided by Binance.",
+    tags: ["Python", "Flask", "Docker", "Angular", "Bootstrap"],
+    imageUrl: hansImg,
+  },
+  {
+    title: "CompetencyIQ",
+    description:
+      "A Competency Management system system tailored for multinational energy corporations significantly boosts their operational effectiveness, safety protocols, adaptability, and strategic progression.",
+    tags: [
+      ".NET Framework",
+      "C#",
+      "SQL Server",
+      "AngularJS",
+      "JQuery",
+      "Bootstrap",
+      "Azure",
+    ],
+    imageUrl: competencyiqImg,
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
-  "CSS",
+  "C#",
+  ".NET Core",
   "JavaScript",
   "TypeScript",
+  "SQL Server",
+  "MySQL",
   "React",
   "Next.js",
-  "Node.js",
+  "Angular",
+  "Python",
   "Git",
   "Tailwind",
-  "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
-  "PostgreSQL",
-  "Python",
-  "Django",
-  "Framer Motion",
+  "AWS",
+  "Azure",
+  "Docker",
+  "T-SQL",
+  "JQuery",
+  "Bootstrap",
 ] as const;
