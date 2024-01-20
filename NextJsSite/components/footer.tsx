@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="mb-10 px-4 text-center text-gray-500">
       <small className="mb-2 block text-xs">
-        &copy; 2023 Chris Iveson (as a fork of{" "}
+        &copy; 2024 Chris Iveson (as a fork of{" "}
         <a
           className="underline"
           href="https://github.com/ByteGrad/portfolio-website"

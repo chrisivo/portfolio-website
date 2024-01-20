@@ -13,3 +13,13 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+
+.grecaptcha-badge {
+  bottom: 90px !important;
+}
+
+@media screen and (max-width: 640px) {
+  .grecaptcha-badge {
+    display: none !important;
+  }
+}

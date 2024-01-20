@@ -9,7 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const fromAddr = process.env.EMAIL_FROM_ADDR || "";
 const toAddr = process.env.EMAIL_TO_ADDR || "";
 
-export const sendEmail = async (formData: FormData) => {
+export const sendEmail = async (formData: FormData, reCaptchaToken: string) => {
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
 
@@ -26,6 +26,28 @@ export const sendEmail = async (formData: FormData) => {
   }
 
   const from = `Contact Form <${fromAddr}>`;
+
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+  console.log(
+    "validating recaptcha with secretKey",
+    secretKey,
+    "token",
+    reCaptchaToken,
+  );
+
+  const response = await fetch(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${reCaptchaToken}`,
+  );
+  const body = await response.text();
+
+  console.log("received from recaptcha", body);
+
+  if (!JSON.parse(body)["success"]) {
+    return {
+      error: "Invalid reCaptcha response",
+    };
+  }
 
   let data;
   try {

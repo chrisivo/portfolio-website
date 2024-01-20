@@ -7,15 +7,19 @@ import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
 import toast from "react-hot-toast";
+import { useReCaptcha } from "next-recaptcha-v3";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const { executeRecaptcha, loaded, error } = useReCaptcha();
 
   // me directly at{" "}
   //         <a className="underline" href="mailto:example@gmail.com">
   //                   example@gmail.com
   //                           </a>{" "}
   //
+  //
+  console.log("reCaptcha loaded is", loaded, "error", error);
   return (
     <motion.section
       id="contact"
@@ -37,13 +41,14 @@ export default function Contact() {
       <SectionHeading>Contact me</SectionHeading>
 
       <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please contact me directly by completing this form.
+        Please contact me directly by completing this form:
       </p>
 
       <form
         className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+          const token = await executeRecaptcha("form_submit");
+          const { error } = await sendEmail(formData, token);
 
           if (error) {
             toast.error(error);

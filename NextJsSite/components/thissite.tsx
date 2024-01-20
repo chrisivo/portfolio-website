@@ -17,7 +17,7 @@ export default function ThisSite() {
       transition={{ delay: 0.175 }}
       id="thissite"
     >
-      <SectionHeading>About me</SectionHeading>
+      <SectionHeading>This Site</SectionHeading>
       <p className="mb-3">
         This site is my{" "}
         <a
