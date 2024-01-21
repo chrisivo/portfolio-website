@@ -1,5 +1,6 @@
 import { ISiteConfig } from "@/types";
 import { SecretsManager } from "@aws-sdk/client-secrets-manager";
+import { decode } from "punycode";
 
 const getAwsSecrets = async (): Promise<ISiteConfig | null> => {
   const awsRegion: string = process.env.SITE_SECRETS_REGION || "";
@@ -49,7 +50,6 @@ const getAwsSecrets = async (): Promise<ISiteConfig | null> => {
     return null;
   }
 
-  console.log("decoded value is", decodedValue);
   return JSON.parse(decodedValue) as ISiteConfig;
 };
 
