@@ -8,24 +8,23 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
+import getAwsSecrets from "@/actions/getAwsSecrets";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Chris Iveson | Experienced Freelance Software Engineer",
   description:
-    "Chris Iveson is a full-stack developer with 25 years of experience.",
+    "Chris Iveson is a full-stack .NET Core developer with 25 years of experience.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  console.log(
-    "Loading reCaptcha with",
-    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-  );
+  const siteSecrets = await getAwsSecrets();
+
   return (
     <html lang="en" className="!scroll-smooth">
       <body
@@ -33,9 +32,7 @@ export default function RootLayout({
       >
         <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
         <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
-        <ReCaptchaProvider
-          reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-        >
+        <ReCaptchaProvider reCaptchaKey={siteSecrets?.recaptchaSiteKey}>
           <ThemeContextProvider>
             <ActiveSectionContextProvider>
               <Header />
@@ -47,9 +44,7 @@ export default function RootLayout({
             </ActiveSectionContextProvider>
           </ThemeContextProvider>
         </ReCaptchaProvider>
-        <GoogleAnalytics
-          gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TAG_ID || ""}
-        />
+        <GoogleAnalytics gaId={siteSecrets?.googleAnalyticsTagId || ""} />
       </body>
     </html>
   );

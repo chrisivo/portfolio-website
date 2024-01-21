@@ -4,12 +4,15 @@ import React from "react";
 import { Resend } from "resend";
 import { validateString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/email/contact-form-email";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromAddr = process.env.EMAIL_FROM_ADDR || "";
-const toAddr = process.env.EMAIL_TO_ADDR || "";
+import getAwsSecrets from "./getAwsSecrets";
 
 export const sendEmail = async (formData: FormData, reCaptchaToken: string) => {
+  const siteSecrets = await getAwsSecrets();
+
+  const resend = new Resend(siteSecrets?.resendToken);
+  const fromAddr = siteSecrets?.mailFromAddr || "";
+  const toAddr = siteSecrets?.mailToAddr || "";
+
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
 
@@ -19,6 +22,7 @@ export const sendEmail = async (formData: FormData, reCaptchaToken: string) => {
       error: "Invalid sender email",
     };
   }
+
   if (!validateString(message, 5000)) {
     return {
       error: "Invalid message",
@@ -26,8 +30,7 @@ export const sendEmail = async (formData: FormData, reCaptchaToken: string) => {
   }
 
   const from = `Contact Form <${fromAddr}>`;
-
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  const secretKey = siteSecrets?.recaptchaSecretKey || "";
 
   console.log(
     "validating recaptcha with secretKey",
@@ -39,9 +42,8 @@ export const sendEmail = async (formData: FormData, reCaptchaToken: string) => {
   const response = await fetch(
     `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${reCaptchaToken}`,
   );
-  const body = await response.text();
 
-  console.log("received from recaptcha", body);
+  const body = await response.text();
 
   if (!JSON.parse(body)["success"]) {
     return {

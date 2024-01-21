@@ -1,11 +1,8 @@
-import { NextjsSite, StackContext } from "sst/constructs";
-import * as cdk from "aws-cdk-lib";
-import { ISiteConfig } from "../types";
+import { NextjsSite, StackContext, use } from "sst/constructs";
+import SecretsStack from "./SecretsStack";
 
 const NextAppsStack = ({ stack }: StackContext) => {
-  const secrets: ISiteConfig = cdk.SecretValue.secretsManager(
-    "chrisiveson-site-secrets",
-  ).toJSON();
+  const { chrisIvesonSiteSecrets } = use(SecretsStack);
 
   const site = new NextjsSite(stack, "ChrisIvesonNextJSSite", {
     path: "../NextJsSite",
@@ -16,12 +13,8 @@ const NextAppsStack = ({ stack }: StackContext) => {
       hostedZone: "chrisiveson.com",
     },
     environment: {
-      MAIL_FROM_ADDR: secrets.mailFromAddr,
-      MAIL_TO_ADDR: secrets.mailFromAddr,
-      RESEND_API_KEY: secrets.resendToken,
-      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: secrets.recaptchaSiteKey,
-      RECAPTCHA_SECRET_KEY: secrets.recaptchaSecretKey,
-      NEXT_PUBLIC_GOOGLE_ANALYTICS_TAG_ID: secrets.googleAnalyticsTagId,
+      SITE_SECRETS_ARN: chrisIvesonSiteSecrets.secretArn,
+      SITE_SECRETS_REGION: stack.region,
     },
   });
 
