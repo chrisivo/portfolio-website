@@ -33,7 +33,7 @@ export default function ThisSite() {
         >
           portfolio-website
         </a>{" "}
-        created by
+        created by{" "}
         <a className="underline" href="https://github.com/ByteGrad">
           ByteGrad
         </a>

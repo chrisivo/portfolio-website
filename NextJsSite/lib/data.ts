@@ -146,8 +146,8 @@ export const projectsData = [
   {
     title: "Project Hans",
     description:
-      "A web-based algorithmic cryptocurrency trading studio, allowing users to create, backtest and run automatic trading algorithm on the various cryptocurrency trading markets provided by Binance.",
-    tags: ["Python", "Flask", "Docker", "Angular", "Bootstrap"],
+      "A web-based algorithmic cryptocurrency trading studio, allowing users to create, backtest and run automatic trading algorithms on the various cryptocurrency trading markets provided by Binance.",
+    tags: ["Python", "Flask", "Docker", "Angular", "Bootstrap", "REST API's"],
     imageUrl: hansImg,
   },
   {
