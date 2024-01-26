@@ -42,19 +42,19 @@ export default function ThisSite() {
         <a className="underline" href="https://sst.dev">
           SST toolkit
         </a>
-        . The code for which can be found in{" "}
+        . The code for which can be found{" "}
         <a
           className="underline"
           href="https://github.com/chrisivo/portfolio-website/tree/master/chrisiveson-sst"
         >
-          my fork
+          in the SST subdirectory
         </a>{" "}
-        of the{" "}
+        of{" "}
         <a
           className="underline"
           href="https://github.com/ByteGrad/portfolio-website"
         >
-          portfolio-website repository
+          my fork of the portfolio-website repository
         </a>{" "}
         on GitHub.
       </p>
