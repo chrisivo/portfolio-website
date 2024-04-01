@@ -3,11 +3,6 @@ import { SecretValue } from "aws-cdk-lib";
 import { StackContext } from "sst/constructs";
 
 const SecretsStack = ({ stack }: StackContext) => {
-  const chrisIvoSecrets = new secretsmanager.Secret(stack, "ChrisIvoSecrets", {
-    secretName: "chrisivo-github-token",
-    secretStringValue: SecretValue.unsafePlainText("<place secret here>"),
-  });
-
   const chrisIvesonSiteSecrets = new secretsmanager.Secret(
     stack,
     "ChrisIvesonComSecrets",
@@ -26,7 +21,6 @@ const SecretsStack = ({ stack }: StackContext) => {
   );
 
   stack.addOutputs({
-    chrisIvoSecrets: chrisIvoSecrets.secretArn,
     chrisIvesonSiteSecretsArn: chrisIvesonSiteSecrets.secretArn,
     region: stack.region,
   });
