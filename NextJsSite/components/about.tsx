@@ -22,8 +22,8 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        Hello! I'm Chris, a seasoned Freelance Software Engineer with an MSc in
-        Software Engineering and over 25 years of experience in the tech
+        Hello! I&apos;m Chris, a seasoned Freelance Software Engineer with an
+        MSc in Software Engineering and over 25 years of experience in the tech
         industry. My journey is fueled by a deep passion for technology and
         innovation. Currently, I specialize in architecting and developing
         cutting-edge applications across various platforms, with a particular
@@ -54,8 +54,8 @@ export default function About() {
       </p>
 
       <p>
-        I'm always eager to tackle new challenges and collaborate on exciting
-        projects.{" "}
+        I&apos;m always eager to tackle new challenges and collaborate on
+        exciting projects.{" "}
         <Link
           href="#contact"
           className="underline"
@@ -64,7 +64,7 @@ export default function About() {
             setTimeOfLastClick(Date.now());
           }}
         >
-          Let's connect
+          Let&apos;s connect
         </Link>{" "}
         and create something extraordinary together.
       </p>
